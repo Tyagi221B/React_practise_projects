@@ -34,7 +34,7 @@ export default function Accordian() {
     //     });
     // }
 
-    console.log(selected, multiple);
+    // console.log(selected, multiple);
 
     return (
         <div className="wrapper h-full pb-10 bg-black text-white flex flex-col justify-center items-center">
@@ -49,6 +49,7 @@ export default function Accordian() {
                                 className="mx-2 "
                                 type="checkbox"
                                 checked={!enableMultipleSelection}
+                                onChange={()=>setEnableMultipleSelection(false)}
                             />
                             <button
                                 onClick={() =>
@@ -63,6 +64,8 @@ export default function Accordian() {
                                 className="mx-2 "
                                 type="checkbox"
                                 checked={enableMultipleSelection}
+                                onChange={()=>setEnableMultipleSelection(true)}
+
                             />
                             <button
                                 onClick={() => setEnableMultipleSelection(true)}

@@ -6,9 +6,6 @@ function RandomColorGenerator() {
 
     const handleClick = (type) => {
         setTypeOfColor(type);
-        setButtonBgColor("red");
-        
-
     };
 
     // useEffect(()=>{
@@ -18,10 +15,11 @@ function RandomColorGenerator() {
     const handleCreateRandomColor = () => {
         if (typeOfColor === "hex") {
             const randomColor =
-                "#" + Math.floor(Math.random() * 16777215).toString(16);
+                "#" + Math.floor(Math.random() * 16777215).toString(16);   //16777215 we are multilying by this number because by doing this it will generate the maximum possible value in hexadecimal which is FFFFFF . 
             setColor(randomColor);
         } else {
             const randomRed = Math.floor(Math.random() * 256);
+            //in the rgb , the range is from 0 to 255 and math.random generates values between 0 to 1 where 1 is exclusive , that means the number will always be less than 256 , and that is what we want . 
             const randomGreen = Math.floor(Math.random() * 256);
             const randomBlue = Math.floor(Math.random() * 256);
 
