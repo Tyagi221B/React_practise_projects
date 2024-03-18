@@ -42,7 +42,37 @@ export default function Accordian() {
                 Accordian
             </div>
             <div>
-                <button
+                {
+                    <div className="flex mb-6 mt-6 ">
+                        <div className="mx-2 p-2 border border-white rounded-md hover:bg-orange-700">
+                            <input
+                                className="mx-2 "
+                                type="checkbox"
+                                checked={!enableMultipleSelection}
+                            />
+                            <button
+                                onClick={() =>
+                                    setEnableMultipleSelection(false)
+                                }
+                            >
+                                Enable Single Selection
+                            </button>
+                        </div>
+                        <div className="mx-2 p-2 border border-white rounded-md hover:bg-orange-700">
+                            <input
+                                className="mx-2 "
+                                type="checkbox"
+                                checked={enableMultipleSelection}
+                            />
+                            <button
+                                onClick={() => setEnableMultipleSelection(true)}
+                            >
+                                Enable Multiple Selection
+                            </button>
+                        </div>
+                    </div>
+                }
+                {/* <button
                     onClick={() =>
                         setEnableMultipleSelection(!enableMultipleSelection)
                     }
@@ -53,7 +83,7 @@ export default function Accordian() {
                     ) : (
                         <h1>Enable Multiple Selection</h1>
                     )}
-                </button>
+                </button> */}
             </div>
             <div className="accordian border-2 border-white py-2 px-2 w-1/2">
                 {data && data.length > 0 ? (
