@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 function RandomColorGenerator() {
     const [typeOfColor, setTypeOfColor] = useState("hex");
