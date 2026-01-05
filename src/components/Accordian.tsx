@@ -25,7 +25,7 @@ function Accordian() {
 
   return (
     <div className="w-full max-w-3xl mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center text-gray-900 mb-8">Accordion</h1>
+      <h1 className="text-6xl font-bold text-center text-gray-200 mb-8 tracking-widest">Accordion</h1>
 
       <div className="bg-gray-50 rounded-lg p-4 mb-6 border border-gray-200">
         <div className="flex items-center justify-between flex-wrap gap-4">
