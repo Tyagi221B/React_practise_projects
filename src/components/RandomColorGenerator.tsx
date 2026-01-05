@@ -22,26 +22,30 @@ function RandomColorGenerator() {
   };
 
   return (
-    <div>
-      <div className="flex">
+    <div className="w-full max-w-4xl mx-auto p-6">
+      <h1 className="text-4xl font-bold text-center mb-8">
+        Random Color Generator
+      </h1>
+
+      <div className="flex flex-wrap gap-4 justify-center mb-8">
         <button
           className={`${
-            colorType === "HEX" ? "bg-red-500" : "bg-gray-600"
-          } w-fit p-3 bg-gray-600 border-2 border-amber-300 rounded-3xl`}
+            colorType === "HEX" ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-600 hover:bg-gray-700"
+          } px-6 py-3 text-white font-medium rounded-lg transition-colors`}
           onClick={() => setcolorType("HEX")}
         >
           Create HEX Color
         </button>
         <button
           className={`${
-            colorType === "RGB" ? "bg-red-500" : "bg-gray-600"
-          } w-fit p-3 bg-gray-600 border-2 border-amber-300 rounded-3xl`}
+            colorType === "RGB" ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-600 hover:bg-gray-700"
+          } px-6 py-3 text-white font-medium rounded-lg transition-colors`}
           onClick={() => setcolorType("RGB")}
         >
           Create RGB Color
         </button>
         <button
-          className={`w-fit p-3 bg-gray-600 border-2 border-amber-300 rounded-3xl`}
+          className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-colors"
           onClick={() => handleRandomColorGeneration()}
         >
           Generate Random Color
@@ -49,10 +53,12 @@ function RandomColorGenerator() {
       </div>
 
       <div
-        style={{ backgroundColor: color || "blanchedalmond" }}
-        className=" w-32 h-32 text-black"
+        style={{ backgroundColor: color || "#f5f5f5" }}
+        className="w-full h-80 rounded-xl shadow-lg flex flex-col items-center justify-center text-2xl font-semibold border-2 border-gray-300"
       >
-        {color ? color : "Default Color"}
+        <p className="bg-white bg-opacity-90 px-6 py-3 rounded-lg shadow-md text-black">
+          {color ? color : "Click Generate to Create a Color"}
+        </p>
       </div>
     </div>
   );
