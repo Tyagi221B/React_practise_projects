@@ -5,6 +5,24 @@ function RandomColorGenerator() {
   const [color, setcolor] = useState("");
   console.log(color);
 
+  const rgbToHex = (rgb: string): string => {
+    const match = rgb.match(/rgb\((\d+),(\d+),(\d+)\)/);
+    if (!match) return "#000000";
+    const r = parseInt(match[1]);
+    const g = parseInt(match[2]);
+    const b = parseInt(match[3]);
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  };
+
+  const hexToRgb = (hex: string): string => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!result) return "rgb(0,0,0)";
+    const r = parseInt(result[1], 16);
+    const g = parseInt(result[2], 16);
+    const b = parseInt(result[3], 16);
+    return `rgb(${r},${g},${b})`;
+  };
+
   const handleRandomColorGeneration = () => {
     if (colorType === "HEX") {
       const randomColor =
@@ -21,6 +39,8 @@ function RandomColorGenerator() {
     }
   };
 
+  
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6">
       <h1 className="text-4xl font-bold text-center mb-8">
@@ -32,7 +52,12 @@ function RandomColorGenerator() {
           className={`${
             colorType === "HEX" ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-600 hover:bg-gray-700"
           } px-6 py-3 text-white font-medium rounded-lg transition-colors`}
-          onClick={() => setcolorType("HEX")}
+          onClick={() => {
+            setcolorType("HEX");
+            if (color && color.startsWith("rgb")) {
+              setcolor(rgbToHex(color));
+            }
+          }}
         >
           Create HEX Color
         </button>
@@ -40,7 +65,12 @@ function RandomColorGenerator() {
           className={`${
             colorType === "RGB" ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-600 hover:bg-gray-700"
           } px-6 py-3 text-white font-medium rounded-lg transition-colors`}
-          onClick={() => setcolorType("RGB")}
+          onClick={() => {
+            setcolorType("RGB");
+            if (color && color.startsWith("#")) {
+              setcolor(hexToRgb(color));
+            }
+          }}
         >
           Create RGB Color
         </button>
